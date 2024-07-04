@@ -77,6 +77,9 @@ nav ul li::before {
 nav ul li:hover::before {
     transform: scale(1);
 }
+nav ul li a {
+  color: #222;
+}
 nav ul li:hover a {
     color: var(--Bright-Blue);
 }
