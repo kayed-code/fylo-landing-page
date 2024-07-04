@@ -1,0 +1,370 @@
+:root {
+                    /* typography */
+
+    --body-font: "Open Sans", sans-serif;
+
+    /* Headings, Call-to-actions, Header Navigation */
+    --heading-font: "Raleway", sans-serif;
+
+                    /* colors  */
+    /* Primary */
+    --Very-Dark-Blue: hsl(243, 87%, 12%);
+    --Desaturated-Blue: hsl(238, 22%, 44%);
+
+    /* Accent */
+    --Bright-Blue: hsl(224, 93%, 58%);
+    --Moderate-Cyan: hsl(170, 45%, 43%);
+
+    /* Neutral */
+    --Light-Grayish-Blue: hsl(240, 75%, 98%);
+    --Light-Gray: hsl(0, 0%, 75%);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--body-font);
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--Very-Dark-Blue);
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+main .container,
+nav,
+footer .container {
+    padding-inline: 20px;
+    width: 92%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* staart nav section  */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+nav .logo {
+    height: 34px;
+    cursor: pointer;
+}
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+nav ul li {
+    position: relative;
+}
+nav ul li::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 2px;
+    background: var(--Bright-Blue);
+    bottom: 0;
+    left: -5%;
+    transform: scale(0);
+    transition: .3s;
+}
+nav ul li:hover::before {
+    transform: scale(1);
+}
+nav ul li:hover a {
+    color: var(--Bright-Blue);
+}
+/* end of nav section  */
+
+/* start home page section  */
+main .home,
+main .second .container,
+.newslitter .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    place-items: center;
+    padding-bottom: 50px;
+}
+main .home .img img,
+main .second .img img {
+    width: 100%;
+}
+.home .info h1 {
+    font-size: 2.3rem;
+    font-family: var(--heading-font);
+    line-height: 3rem;
+}
+.home .info p {
+    font-weight: 500;
+    margin-block: 15px;
+    width: 92%;
+}
+.home form {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.home input[type="email"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--Very-Dark-Blue);
+    outline: none;
+    width: 50%;
+    caret-color: var(--Very-Dark-Blue);
+}
+.home form::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    font-size: 10px;
+    color: orangered;
+}
+.home input[type="email"]::placeholder {
+    color: var(--Very-Dark-Blue);
+}
+.home input[type="email"]:invalid {
+    border-color: orangered;
+}
+.home form:has(input[type="email"]:invalid)::before {
+    content: "Please check your email";
+}
+.home input[type="submit"] {
+    padding: 8px ;
+    width: 30%;
+    border-radius: 4px;
+    border: none;
+    background: var(--Bright-Blue);
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px -1px rgba(128, 128, 128, 0.918);
+    transition: .3s;
+}
+.home input[type="submit"]:hover {
+    background-image: linear-gradient(45deg, var(--Very-Dark-Blue), var(--Bright-Blue));
+}
+/* end of home section  */
+
+/* start second section  */
+
+.second {
+    position: relative;
+    width: 100%;
+    background: var(--Light-Grayish-Blue);
+    padding: 80px 0 20px;
+    /* i can use display flex here and give the childs width 50%
+    and in media query breakoint make it flex flow column reverse and childs 100% */
+    border-top-left-radius: 50% 20%;
+    border-top-right-radius: 60% 20%;
+}
+.second .text p {
+    margin: 20px 0;
+    font-weight: 500;
+}
+.second .text a {
+    color: var(--Moderate-Cyan);
+    font-weight: 500;
+    position: relative;
+}
+.second .text a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    background: var(--Moderate-Cyan);
+    bottom: -5px;
+}
+.second .text a img {
+    margin: 0 0 -4px 5px;
+}
+.second .review {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px  rgba(128, 128, 128, 0.388);
+    width: 70%;
+    margin-top: 40px;
+}
+.second .review > p {
+    margin: 20px 0;
+}
+.second .review .review-footer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.second .review .review-footer img {
+    width: 40px;
+    border-radius: 50%;
+}
+.second .review .review-footer strong {
+    font-size: 14px;
+}
+.second .review .review-footer p {
+    font-size: 12px;
+}
+/* end of section two  */
+
+/* start newsliter section  */
+.newslitter {
+    background: var(--Desaturated-Blue);
+    color: white;
+    padding: 40px 0 0;
+}
+.newslitter .container .text p {
+    font-size: 13px;
+    margin-top: 20px;
+    width: 75%;
+    line-height: 1.3rem;
+}
+.newslitter .container form {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+    width: 100%;
+}
+.newslitter .container form input {
+    padding: 10px;
+    width: 80%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+.newslitter .container form input::placeholder {
+    text-indent: 15px;
+    font-size: 13px;
+}
+.newslitter .container form input[type="submit"] {
+    width: 30%;
+    background: var(--Bright-Blue);
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px -1px rgba(39, 39, 39, 0.918);
+}
+/* end of newslitter section  */
+
+/* start footer  */
+footer {
+    background: var(--Very-Dark-Blue);
+    padding: 40px 0;
+    color: white;
+}
+footer a {
+    color: white;
+}
+footer .container > img {
+    filter: brightness(0) invert(1);
+    height: 35px;
+    margin-bottom: 15px;
+}
+footer .item > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;   
+}
+footer .item > div p {
+    font-size: 13px;
+}
+footer .item > div img {
+    height: 15px;
+}
+footer .item > div:first-of-type {
+    margin-bottom: 20px;
+}
+footer .box  {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+footer .box .icons {
+    display: flex;
+    gap: 20px;
+    /* align-items: center; */
+}
+footer .box .icons i {
+    border: 2px solid;
+    border-radius: 50%;
+    width: 26px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+}
+@media screen and (max-width: 768px) {
+    main .home,
+    main .second .container,
+    .newslitter .container {
+        grid-template-columns: 1fr;
+    }
+    main .home .img img {
+        grid-row: 1 / 2;
+    }
+    main .second .container .info {
+        grid-row: 2 / 3;
+    }
+    .home .info {
+        grid-row: 2 / 3;
+    }
+    .home .info {
+        text-align: center;
+    }
+    .home .info h1 {
+        font-size: 2rem;
+        line-height: 2.3rem;
+    }
+    .home form {
+        justify-content: center;
+    }
+
+    .second .review {
+        width: 100%;
+    }
+
+    .newslitter .container .text h3 {
+        text-align: center;
+    }
+    .newslitter .container .text p {
+        margin: 20px auto 0;
+        text-align: center;
+    }
+    .newslitter .container input,
+    .newslitter .container form input[type="submit"] {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 600px) {
+    .second .info .text h2 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 480px) {
+    .home .info h1 {
+        font-size: 1rem;
+    }
+    .home .info p {
+        font-size: .8rem;
+    }
+    .home .info form input {
+        width: 94%;
+        padding: 10px;
+    }
+    nav img.logo {
+        height: 25px;
+    }
+
+    .second .info .text h2 {
+        font-size: 1.1em;
+    }
+
+    .second p {
+        font-size: .8rem;
+    }
+}
